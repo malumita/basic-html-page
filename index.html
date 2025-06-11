@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dynamic Time-Based Background</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            padding-top: 100px;
-            transition: background-color 0.5s ease;
-        }
-    </style>
-    <script>
-        // Function to run the page
-        function changeBackground() {
-            // Get the time
-            const now = new Date();
-            const hour = now.getHours();
-
-            // Nackground color
-            let backgroundColor = "";
-
-          
-            if (hour >= 6 && hour < 12) {
-                backgroundColor = "#FFDD57"; // Morning 
-            } else if (hour >= 12 && hour < 18) {
-                backgroundColor = "#4DA6FF"; // Afternoon 
-            } else if (hour >= 18 && hour < 21) {
-                backgroundColor = "#FF884D"; // Evening 
-            } else {
-                backgroundColor = "#33334D"; // Night 
-            }
-
-            // Apply the background color 
-            document.body.style.backgroundColor = backgroundColor;
-        }
-
-        // Run the function when loading
-        window.onload = changeBackground;
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time-Based Image Webpage</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    img {
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Jose Rodriguez</h1>
-    <p>Course: Web Applications Programming</p>
-    <p>Major: Computer Science</p>
-    <h2>Welcome to my webpage</h2>
+  <h1>Jose Rodriguez</h1>
+  <h2>Web Applications Programming</h2>
+  <h3>Computer Science Major</h3>
+  <p>This webpage changes its image depending on the time.</p>
+
+  <img id="timeImage" alt="Time-based image" src="">
+
+  <script>
+    const image = document.getElementById('timeImage');
+    const hour = new Date().getHours();
+
+    if (hour >= 6 && hour < 12) {
+      // Morning image
+      image.src = "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80";
+      image.alt = "Morning Scene";
+    } else if (hour >= 12 && hour < 18) {
+      // Afternoon image
+      image.src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80";
+      image.alt = "Afternoon Scene";
+    } else {
+      // Night image (your selected sunset)
+      image.src = "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80";
+      image.alt = "Night Scene";
+    }
+  </script>
 </body>
 </html>
